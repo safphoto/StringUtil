@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd"
+    >
+<html lang="en">
+<head>
+    <title>String Util Examples</title>
+    <script type="text/javascript" src="./StringUtil.js"></script>
+    <script type="application/x-javascript">
+        var initialViewer = true;
+        
+        var Logger = {};
+            Logger.LogToConsole = function (message) {
+                if (window.console && window.console.log)
+                    window.console.log(message);
+            };  
+        
+        function pageLoaded() {
+            var viewer = document.getElementById("viewer");
+            viewer.innerHTML = ""
+            
+            var formatExample = FormatExample();
+            WriteToViewer(formatExample);
+            
+            var containsExample = ContainsExample();
+            WriteToViewer(containsExample);
+        }
+        
+        function WriteToViewer(message) {
+            if (!initialViewer) {
+                var newLine = document.createElement("br");
+                viewer.appendChild(newLine);
+                var newMessage = document.createTextNode('Results: ' + message);
+                viewer.appendChild(newMessage);
+            }
+            else {
+                viewer.innerHTML = 'Results: ' + message;                    
+                initialViewer = false;
+            } 
+        }
+        
+        //
+        // USAGE EXAMPLES
+        //
+        
+        function FormatExample() {            
+            return stringUtil.Format('{0} New Year - {1}', 'Happy', '2015');
+        }
+        
+        function ContainsExample() {
+            return stringUtil.Contains('Happy New Year -2015', 'year', false);
+        }
+    </script>
+</head>
+<body onload="pageLoaded()">
+    <div id="viewer">
+        Testing . . .
+    </div>
+</body>
+</html>
