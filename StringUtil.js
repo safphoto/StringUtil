@@ -1,4 +1,7 @@
-var stringUtil = {};
+// Safely create namespace
+var SAF = SAF || {};
+
+SAF.StringUtil = {};
 
 (function(util) {
     /**
@@ -140,10 +143,10 @@ var stringUtil = {};
     /**
      * @return {string}
      */
-    util.Unhighlight = function(text, tag) {
+    util.UnHighlight = function(text, tag) {
       // Default tag if no tag is provided
       tag = tag || 'span';
       var re = new RegExp('(<'+ tag +'.+?>|<\/'+ tag +'>)', 'g');
       return text.replace(re, '');
     };
-}(stringUtil));
+}(SAF.StringUtil));
