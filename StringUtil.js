@@ -7,11 +7,11 @@ SAF.StringUtil = {};
     /**
      * @return {string}
      */
-    util.Format = function() {
+    util.format = function() {
         var s = arguments[0];
         
         for (i = 1; i < arguments.length; i++) {
-            s = util.ReplaceAll(s, '{' + (i - 1) + '}', arguments[i]);
+            s = util.replaceAll(s, '{' + (i - 1) + '}', arguments[i]);
         }
         
         return s;
@@ -20,21 +20,21 @@ SAF.StringUtil = {};
     /**
      * @return {string}
      */
-    util.ReplaceAll = function (source, target, replaceWith) {
+    util.replaceAll = function (source, target, replaceWith) {
         return source.split(target).join(replaceWith);
     };
 
     /**
      * @return {string}
      */
-    util.IsNullOrEmpty = function(value) {
+    util.isNullOrEmpty = function(value) {
         return !value;
     };
 
     /**
      * @return {string}
      */
-    util.Capitalize = function(source) {
+    util.capitalize = function(source) {
         var lc = source.toLowerCase();
         return lc.replace( /(^|\s)([a-z])/g , function(m,p1,p2){return p1+p2.toUpperCase();});
     };
@@ -42,7 +42,7 @@ SAF.StringUtil = {};
     /**
      * @return {string}
      */
-    util.ConvertJsonToDateTime = function(jsonDateTime) {
+    util.convertJsonToDateTime = function(jsonDateTime) {
         var milli = jsonDateTime.replace(/\/Date\((-?\d+)\)\//, '$1');
         var date = new Date(parseInt(milli));
         return date;
@@ -51,14 +51,14 @@ SAF.StringUtil = {};
     /**
      * @return {string}
      */
-    util.Contains = function(source, target, isCaseSensitive) {
+    util.contains = function(source, target, isCaseSensitive) {
         return !!new RegExp(target, !isCaseSensitive ? "i" : "" + "g").test(source);
     };
 
     /**
      * @return {string}
      */
-    util.Remove = function(source, start, length) {
+    util.remove = function(source, start, length) {
         var s = '';
         
         if (start > 0)
@@ -73,56 +73,56 @@ SAF.StringUtil = {};
     /**
      * @return {string}
      */
-    util.Repeat = function (source, count) {
+    util.repeat = function (source, count) {
         return new Array( count + 1 ).join( source );
     };
 
     /**
      * @return {string}
      */
-    util.ReplaceAll = function(source, find, replace) {
+    util.replaceAll = function(source, find, replace) {
         return source.split(find).join(replace);
     };
 
     /**
      * @return {Array.<string>}
      */
-    util.ToCharArray = function(source) {
+    util.toCharArray = function(source) {
         return source.split('');
     };
 
     /**
      * @return {Array.<string>}
      */
-    util.ToWordArray = function(source) {
+    util.toWordArray = function(source) {
         return source.split(' ');
     };
 
     /**
      * @return {string}
      */
-    util.Trim = function (source) {
+    util.trim = function (source) {
         return source.replace(/^\s+|\s+$/g, "");
     };
 
     /**
      * @return {string}
      */
-    util.TrimLeft = function(source) {
+    util.trimLeft = function(source) {
         return source.replace(/^\s+/, "");
     };
 
     /**
      * @return {string}
      */
-    util.TrimRight = function(source) {
+    util.trimRight = function(source) {
         return source.replace(/\s+$/, '');
     };
 
     /**
      * @return {string}
      */
-    util.Highlight = function(text, words, tag) {
+    util.highlight = function(text, words, tag) {
       // Default tag if no tag is provided
       tag = tag || 'span';
      
@@ -143,7 +143,7 @@ SAF.StringUtil = {};
     /**
      * @return {string}
      */
-    util.UnHighlight = function(text, tag) {
+    util.unHighlight = function(text, tag) {
       // Default tag if no tag is provided
       tag = tag || 'span';
       var re = new RegExp('(<'+ tag +'.+?>|<\/'+ tag +'>)', 'g');
