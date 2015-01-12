@@ -1,4 +1,5 @@
-// Safely create namespace
+'use strict';
+
 var SAF = SAF || {};
 
 SAF.StringUtil = {};
@@ -10,7 +11,7 @@ SAF.StringUtil = {};
     util.format = function() {
         var s = arguments[0];
         
-        for (i = 1; i < arguments.length; i++) {
+        for (var i = 1; i < arguments.length; i++) {
             s = util.replaceAll(s, '{' + (i - 1) + '}', arguments[i]);
         }
         
