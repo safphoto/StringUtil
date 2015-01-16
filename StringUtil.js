@@ -1,10 +1,10 @@
-'use strict';
-
 var SAF = SAF || {};
 
 SAF.StringUtil = {};
 
 (function(util) {
+    'use strict';
+
     /**
      * @return {string}
      */
